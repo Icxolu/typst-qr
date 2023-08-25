@@ -4,9 +4,11 @@
 #let qr(data, dark_color: black, light_color: white, has_quiet_zone: true, width: auto) = image.decode(
     str(typst_qr.qr(
         bytes(data),
-        bytes(dark_color.hex()),
-        bytes(light_color.hex()),
-        bytes((int(has_quiet_zone),))
+        bytes(json.encode((
+            dark_color: dark_color.hex(),
+            light_color: light_color.hex(),
+            has_quiet_zone: has_quiet_zone,
+        ), pretty: false))
     )),
     format: "svg",
     width: width
