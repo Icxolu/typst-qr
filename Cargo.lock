@@ -40,10 +40,24 @@ dependencies = [
 ]
 
 [[package]]
-name = "itoa"
-version = "1.0.9"
+name = "minicbor"
+version = "0.19.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "af150ab688ff2122fcef229be89cb50dd66af9e01a4ff320cc137eecc9bacc38"
+checksum = "d7005aaf257a59ff4de471a9d5538ec868a21586534fff7f85dd97d4043a6139"
+dependencies = [
+ "minicbor-derive",
+]
+
+[[package]]
+name = "minicbor-derive"
+version = "0.13.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1154809406efdb7982841adb6311b3d095b46f78342dd646736122fe6b19e267"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
 
 [[package]]
 name = "num-integer"
@@ -103,47 +117,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "ryu"
-version = "1.0.15"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1ad4cc8da4ef723ed60bced201181d83791ad433213d8c24efffda1eec85d741"
-
-[[package]]
-name = "serde"
-version = "1.0.187"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "30a7fe14252655bd1e578af19f5fa00fe02fd0013b100ca6b49fde31c41bae4c"
-dependencies = [
- "serde_derive",
-]
-
-[[package]]
-name = "serde_derive"
-version = "1.0.187"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e46b2a6ca578b3f1d4501b12f78ed4692006d79d82a1a7c561c12dbc3d625eb8"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
-name = "serde_json"
-version = "1.0.105"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "693151e1ac27563d6dbcec9dee9fbd5da8539b20fa14ad3752b2e6d363ace360"
-dependencies = [
- "itoa",
- "ryu",
- "serde",
-]
-
-[[package]]
 name = "syn"
-version = "2.0.29"
+version = "1.0.109"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c324c494eba9d92503e6f1ef2e6df781e78f6a7705a0202d9801b198807d518a"
+checksum = "72b64191b275b66ffe2469e8af2c1cfe3bafa67b529ead792a6d0160888b4237"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -154,9 +131,8 @@ dependencies = [
 name = "typst-qr"
 version = "0.1.0"
 dependencies = [
+ "minicbor",
  "qrcode-rs",
- "serde",
- "serde_json",
  "wasm-minimal-protocol",
 ]
 

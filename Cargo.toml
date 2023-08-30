@@ -10,9 +10,8 @@ authors = ["Icxolu <10486322+Icxolu@users.noreply.github.com>"]
 crate-type = ["cdylib"]
 
 [dependencies]
+minicbor = { version = "0.19.1", features = ["derive"] }
 qrcode-rs = "0.1.2"
-serde = { version = "1.0.187", features = ["derive"] }
-serde_json = "1.0.105"
 wasm-minimal-protocol = { git = "https://github.com/astrale-sharp/wasm-minimal-protocol", rev = "0e4bfded1986b13c217f3c80032c68b28f9e448a" }
 
 [profile.release]

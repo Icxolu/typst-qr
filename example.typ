@@ -3,12 +3,12 @@
 
 #let qr(data, dark_color: black, light_color: white, has_quiet_zone: true, width: auto) = image.decode(
     str(typst_qr.qr(
-        bytes(data),
-        bytes(json.encode((
-            dark_color: dark_color.hex(),
-            light_color: light_color.hex(),
-            has_quiet_zone: has_quiet_zone,
-        ), pretty: false))
+        cbor.encode((
+            data,
+            dark_color.hex(),
+            light_color.hex(),
+            has_quiet_zone,
+        ))
     )),
     format: "svg",
     width: width
